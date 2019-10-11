@@ -1,0 +1,78 @@
+#header{
+    background-color: black;
+    width: 100%;
+    height: 100px;
+    font-weight: bold;
+}
+.header{
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+    padding-top: 20px;
+    color: black;
+    font-weight: bold;
+}
+.input-group{
+    margin-bottom: 20px;
+}
+#cities-div{
+    background-color: #e1e7f0;
+    width: 100%;
+    border-right: 5px solid black;
+}
+#weather-div{
+    width: 100%;
+    height: 350px;
+    border: 1px solid gray;
+    margin-top: 20px;
+    border-radius: 10px;
+    
+
+}
+.center{
+    position: inline;
+    margin: 0 auto;
+    width: 50%;
+}
+.city{
+    background-color: #babdc2;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin-left: 20px;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+p{
+    margin-left: 20px;
+}
+.weather-div-text{
+    margin-left: 40px;
+    margin-top: 20px;
+}
+img{
+    height: 20px;
+    width: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.info{
+    margin-left: 40px;
+}
+.forecast-div{
+    background-color: blue;
+    width: 135px;
+    height: 170px;
+    border-radius: 10px;
+}
+.five-date{
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-top: 10px;
+}
+.five-day-img{
+    margin-top: 1px;
+    width: 20px;
+    height: 20px;
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weather App</title>
+
+    <!-- link to js -->
+    <script src="script.js"></script>
+    <!-- link to css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- link to bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- link to google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- search bar and cities list -->
+
+    <div id="header">
+        <h1 style="color: white" class="header">Weather Dashboard</h1>
+    </div>
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-4" id="cities-div">
+                <h4 class="header">Search for a City:</h4>
+
+                <div id="search-div" class="input-group">
+                    <input type="text" id="search-input" class="form-control width100" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" id="search-btn">Search</button>
+                    </span>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body city">
+                        <p class="">City</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body city">
+                        <p>City</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body city">
+                        <p>City</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body city">
+                        <p>City</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body city">
+                        <p>City</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body city">
+                        <p>City</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body city">
+                        <p>City</p>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body city">
+                        <p>City</p>
+                    </div>
+                </div>
+                <br><br>
+
+            </div>
+
+            <!-- Weather info and five day forecast  -->
+            <!-- ======================================================================================================= -->
+
+            <!-- weather info for chosen city -->
+            <div class="col-lg-8">
+                <div class="panel panel-default" id="weather-div">
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <h1 class="weather-div-text">City</h1>
+                            <h1 class="weather-div-text">Date</h1>
+                            <img src="#">
+                        </div>
+                        <br>
+                    </div>
+
+                    <div class="row">
+                        <p class="info">Temp:</p>
+                        <p id="temp-output"></p>
+                    </div>
+                    <div class="row">
+                        <p class="info">Humidity:</p>
+                        <p id="humitidy-output"></p>
+                    </div>
+                    <div class="row">
+                        <p class="info">Wind Speed:</p>
+                        <p id="windspeed-output"></p>
+                    </div>
+                    <div class="row">
+                        <p class="info">UV index:</p>
+                        <p id="uv-output"></p>
+                    </div>
+                </div>
+
+                <!-- five day forcast -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <h1 class="weather-div-text">5-day Forecast:</h1>
+                        </div>
+
+                        <!-- five blue divs -->
+                        <div class="row">
+                            <div class="forecast-div weather-div-text">
+                                <p class="five-date">date</p>
+                                <img src="#" class="five-day-img">
+                                <p class="five-date">Temp: </p>
+                                <p id="temp-output1"></p>
+                                <p class="five-date">Hum: </p>
+                                <p id="humidity-output1"></p>
+
+                            </div>
+                            <div class="forecast-div weather-div-text">
+                                <p class="five-date">date</p>
+                                <img src="#" class="five-day-img">
+                                <p class="five-date">Temp: </p>
+                                <p id="temp-output1"></p>
+                                <p class="five-date">Hum: </p>
+                                <p id="humidity-output1"></p>
+
+                            </div>
+                            <div class="forecast-div weather-div-text">
+                                <p class="five-date">date</p>
+                                <img src="#" class="five-day-img">
+                                <p class="five-date">Temp: </p>
+                                <p id="temp-output1"></p>
+                                <p class="five-date">Hum: </p>
+                                <p id="humidity-output1"></p>
+
+                            </div>
+                            <div class="forecast-div weather-div-text">
+                                <p class="five-date">date</p>
+                                <img src="#" class="five-day-img">
+                                <p class="five-date">Temp: </p>
+                                <p id="temp-output1"></p>
+                                <p class="five-date">Hum: </p>
+                                <p id="humidity-output1"></p>
+
+                            </div>
+                            <div class="forecast-div weather-div-text">
+                                <p class="five-date">date</p>
+                                <img src="#" class="five-day-img">
+                                <p class="five-date">Temp: </p>
+                                <p id="temp-output1"></p>
+                                <p class="five-date">Hum: </p>
+                                <p id="humidity-output1"></p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
