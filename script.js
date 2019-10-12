@@ -4,7 +4,13 @@ $(document).ready(function () {
     var dt = new Date();
     var dayDate = dt.toDateString();
     var APIKey = "f41f543f98f3462ad127a26ccbe65e6a";
-    var city = $(this).text();
+    var city;
+
+    if ($(this).hasClass("search")) {
+      city = $("#search-input").val();
+    } else {
+      city = $(this).text();
+    }
 
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
@@ -51,17 +57,17 @@ $(document).ready(function () {
 
       //setting data for day 0 - 5
       $("#fiveDate1").text(EpochToDate(response.list[0].dt));
-      $("#fiveDate2").text(EpochToDate(response.list[6].dt));
-      $("#fiveDate3").text(EpochToDate(response.list[12].dt));
-      $("#fiveDate4").text(EpochToDate(response.list[18].dt));
-      $("#fiveDate5").text(EpochToDate(response.list[26].dt));
+      $("#fiveDate2").text(EpochToDate(response.list[8].dt));
+      $("#fiveDate3").text(EpochToDate(response.list[16].dt));
+      $("#fiveDate4").text(EpochToDate(response.list[24].dt));
+      $("#fiveDate5").text(EpochToDate(response.list[32].dt));
 
       //setting temp for day 0 - 5
       $("#five-temp1").text("Temp: " + Math.floor((response.list[0].main.temp - 273.15) * 9 / 5 + 32) + " F");
-      $("#five-temp2").text("Temp: " + Math.floor((response.list[6].main.temp - 273.15) * 9 / 5 + 32) + " F");
-      $("#five-temp3").text("Temp: " + Math.floor((response.list[12].main.temp - 273.15) * 9 / 5 + 32) + " F");
-      $("#five-temp4").text("Temp: " + Math.floor((response.list[18].main.temp - 273.15) * 9 / 5 + 32) + " F");
-      $("#five-temp5").text("Temp: " + Math.floor((response.list[26].main.temp - 273.15) * 9 / 5 + 32) + " F");
+      $("#five-temp2").text("Temp: " + Math.floor((response.list[8].main.temp - 273.15) * 9 / 5 + 32) + " F");
+      $("#five-temp3").text("Temp: " + Math.floor((response.list[16].main.temp - 273.15) * 9 / 5 + 32) + " F");
+      $("#five-temp4").text("Temp: " + Math.floor((response.list[24].main.temp - 273.15) * 9 / 5 + 32) + " F");
+      $("#five-temp5").text("Temp: " + Math.floor((response.list[32].main.temp - 273.15) * 9 / 5 + 32) + " F");
 
       //setting humidity for day 0 - 5
       $("#hum1").text("Hum: " + response.list[0].main.humidity + "%");
@@ -102,39 +108,15 @@ $(document).ready(function () {
 
   function EpochToDate(epoch) {
     if (epoch < 10000000000)
-        epoch *= 1000; // convert to milliseconds (Epoch is usually expressed in seconds, but Javascript uses Milliseconds)
+      epoch *= 1000; // convert to milliseconds (Epoch is usually expressed in seconds, but Javascript uses Milliseconds)
     var epoch = epoch + (new Date().getTimezoneOffset() * -1); //for timeZone        
-    
+
     var x = new Date(epoch);
     var dayDate = x.toDateString();
-    
+
     return dayDate;
-    
+  }
+
    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //end document ready function
 });
