@@ -25,8 +25,6 @@
     border: 1px solid gray;
     margin-top: 20px;
     border-radius: 10px;
-    
-
 }
 .center{
     position: inline;
@@ -84,4 +82,17 @@ img{
     color: white;
     font-weight: bold;
     font-size: 12px;
+}
+#uv-output{
+    color: white;
+    text-align: center;
+    margin-right: 35px;
+    margin-top: 12px;
+    height: 25px;
+}
+#uv-div{
+background-color: red;
+border-radius: 3px;
+width: 60px;
+margin-left: 15px;
 }

@@ -8,6 +8,7 @@ $(document).ready(function () {
 
     if ($(this).hasClass("search")) {
       city = $("#search-input").val();
+      console.log(city);
     } else {
       city = $(this).text();
     }
@@ -31,14 +32,23 @@ $(document).ready(function () {
       var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
       $("#icon1").attr("src", iconurl);
 
+      //getting latitutde and longitude for UV index
+      var lat = response.coord.lat;
+      var lon = response.coord.lon;
+      
+      //calling UV Index function
+      uvIndex(APIKey, lat, lon);
 
       //end ajax call
     });
+    //calling five day forecast function
     fiveDay(city, APIKey);
+
+
     //end cityButtons() function
   }
 
-  // Adding click event listeners to all elements with a class of "movie"
+  // Adding click event listeners to all elements with a class of "city-btn" and running cityButtons function
   $(document).on("click", ".city-btn", cityButtons);
 
   // ============================================================================================================
@@ -116,7 +126,30 @@ $(document).ready(function () {
 
     return dayDate;
   }
-
    
+  function uvIndex(APIKey, lat, lon){
+    
+    var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
+    
+    $.ajax({
+      url: uvURL,
+      method: "GET"
+    }).then(function (response) {
+      console.log(response);
+      
+      //setting the uv Index
+      $("#uv-output").text(response.value);
+      
+      
+      //end AJAX call for uv Index
+    });
+
+    //end uvIndex function
+  }
+
   //end document ready function
 });
+
+
+
+
