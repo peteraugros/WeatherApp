@@ -48,31 +48,40 @@ p{
     margin-left: 20px;
 }
 .weather-div-text{
-    margin-left: 40px;
+    margin-left: 20px;
     margin-top: 20px;
 }
 img{
-    height: 20px;
-    width: 20px;
+    height: 120px;
+    width: 120px;
     margin-top: 30px;
     margin-left: 30px;
+    background-color: #ccd4e0;
 }
 .info{
     margin-left: 40px;
 }
 .forecast-div{
     background-color: blue;
-    width: 135px;
+    width: 150px;
     height: 170px;
     border-radius: 10px;
 }
 .five-date{
+    position: inline;
     color: white;
     font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
     margin-top: 10px;
+    margin-left: 5px;
 }
 .five-day-img{
     margin-top: 1px;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
+}
+.fiveInfo{
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
 }
