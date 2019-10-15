@@ -35,7 +35,7 @@ $(document).ready(function () {
       //getting latitutde and longitude for UV index
       var lat = response.coord.lat;
       var lon = response.coord.lon;
-      
+
       //calling UV Index function
       uvIndex(APIKey, lat, lon);
 
@@ -65,51 +65,24 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log(response);
 
-      //setting data for day 0 - 5
-      $("#fiveDate1").text(EpochToDate(response.list[0].dt));
-      $("#fiveDate2").text(EpochToDate(response.list[8].dt));
-      $("#fiveDate3").text(EpochToDate(response.list[16].dt));
-      $("#fiveDate4").text(EpochToDate(response.list[24].dt));
-      $("#fiveDate5").text(EpochToDate(response.list[32].dt));
+      //setting data for five day forecast
+      var array = [0, 8, 16, 24, 32];
+      var array2 = [0, 6, 12, 18, 26];
 
-      //setting temp for day 0 - 5
-      $("#five-temp1").text("Temp: " + Math.floor((response.list[0].main.temp - 273.15) * 9 / 5 + 32) + " F");
-      $("#five-temp2").text("Temp: " + Math.floor((response.list[8].main.temp - 273.15) * 9 / 5 + 32) + " F");
-      $("#five-temp3").text("Temp: " + Math.floor((response.list[16].main.temp - 273.15) * 9 / 5 + 32) + " F");
-      $("#five-temp4").text("Temp: " + Math.floor((response.list[24].main.temp - 273.15) * 9 / 5 + 32) + " F");
-      $("#five-temp5").text("Temp: " + Math.floor((response.list[32].main.temp - 273.15) * 9 / 5 + 32) + " F");
+      for (var i = 0; i <= 6; i++) {
+        //setting date for day 0 - 5
+        $("#fiveDate" + i).text(EpochToDate(response.list[array[i]].dt));
+        //setting temp for day 0 - 5
+        $("#five-temp" + i).text("Temp: " + Math.floor((response.list[array[i]].main.temp - 273.15) * 9 / 5 + 32) + " F");
+        //setting humidity for day 0 - 5
+        $("#hum" + i).text("Hum: " + response.list[array[i]].main.humidity + "%");
 
-      //setting humidity for day 0 - 5
-      $("#hum1").text("Hum: " + response.list[0].main.humidity + "%");
-      $("#hum2").text("Hum: " + response.list[6].main.humidity + "%");
-      $("#hum3").text("Hum: " + response.list[12].main.humidity + "%");
-      $("#hum4").text("Hum: " + response.list[18].main.humidity + "%");
-      $("#hum5").text("Hum: " + response.list[26].main.humidity + "%");
-
-      //setting icons for day 0 -5
-      var iconcode2 = response.list[0].weather[0].icon;
-      var iconurl2 = "http://openweathermap.org/img/w/" + iconcode2 + ".png";
-      $("#five-icon1").attr("src", iconurl2);
-      //day 2
-      iconcode2 = response.list[6].weather[0].icon;
-      iconurl2 = "http://openweathermap.org/img/w/" + iconcode2 + ".png";
-      $("#five-icon2").attr("src", iconurl2);
-
-      //day 3
-      iconcode2 = response.list[12].weather[0].icon;
-      iconurl2 = "http://openweathermap.org/img/w/" + iconcode2 + ".png";
-      $("#five-icon3").attr("src", iconurl2);
-
-      //day 4
-      iconcode2 = response.list[18].weather[0].icon;
-      iconurl2 = "http://openweathermap.org/img/w/" + iconcode2 + ".png";
-      $("#five-icon4").attr("src", iconurl2);
-
-      //day 5
-      iconcode2 = response.list[26].weather[0].icon;
-      iconurl2 = "http://openweathermap.org/img/w/" + iconcode2 + ".png";
-      $("#five-icon5").attr("src", iconurl2);
-
+        //setting icons for day 0 -5
+        var iconcode2 = response.list[array2[i]].weather[0].icon;
+        var iconurl2 = "http://openweathermap.org/img/w/" + iconcode2 + ".png";
+        $("#five-icon" + i).attr("src", iconurl2);
+        console.log(i);
+      }
 
       //end ajax call
     });
@@ -126,21 +99,21 @@ $(document).ready(function () {
 
     return dayDate;
   }
-   
-  function uvIndex(APIKey, lat, lon){
-    
+
+  function uvIndex(APIKey, lat, lon) {
+
     var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
-    
+
     $.ajax({
       url: uvURL,
       method: "GET"
     }).then(function (response) {
       console.log(response);
-      
+
       //setting the uv Index
       $("#uv-output").text(response.value);
-      
-      
+
+
       //end AJAX call for uv Index
     });
 
