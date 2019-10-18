@@ -41,6 +41,7 @@
     border: 1px solid gray;
     margin-left: 20px;
     font-family: 'Noto Sans KR', sans-serif;
+    visibility: hidden;
 }
 p{
     margin-left: 20px;

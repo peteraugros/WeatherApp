@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+  var cityScore = 0;
+
+  function cityPost(city){
+    $("." + cityScore).css("visibility", "visible");
+    $("#p" + cityScore).text(city);
+    cityScore++;
+  }
+
   function cityButtons() {
     var dt = new Date();
     var dayDate = dt.toDateString();
@@ -8,11 +16,11 @@ $(document).ready(function () {
 
     if ($(this).hasClass("search")) {
       city = $("#search-input").val();
-      console.log(city);
+      cityPost(city);
     } else {
       city = $(this).text();
     }
-
+    
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
     $.ajax({
@@ -21,12 +29,13 @@ $(document).ready(function () {
     }).then(function (response) {
       console.log(response);
 
-      //pasting info to correct id's from AJAX response
+      //appending data to correct id's from AJAX response
       $("#city").text(response.name);
       $("#date").text(dayDate);
       $("#temp-output").text(Math.floor((response.main.temp - 273.15) * 9 / 5 + 32) + " F");
       $("#humidity-output").text(response.main.humidity + "%");
       $("#windspeed-output").text(response.wind.speed + " mph");
+
       //icon1
       var iconcode = response.weather[0].icon;
       var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
@@ -41,9 +50,9 @@ $(document).ready(function () {
 
       //end ajax call
     });
+
     //calling five day forecast function
     fiveDay(city, APIKey);
-
 
     //end cityButtons() function
   }
@@ -112,7 +121,6 @@ $(document).ready(function () {
 
       //setting the uv Index
       $("#uv-output").text(response.value);
-
 
       //end AJAX call for uv Index
     });
