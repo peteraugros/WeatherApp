@@ -38,7 +38,7 @@ $(document).ready(function () {
 
       //icon1
       var iconcode = response.weather[0].icon;
-      var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+      var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
       $("#icon1").attr("src", iconurl);
 
       //getting latitutde and longitude for UV index
@@ -65,7 +65,7 @@ $(document).ready(function () {
   function fiveDay(city, APIKey) {
 
     //second AJAX call for the five day forecast
-    var queryURLFiveDay = "http://api.openweathermap.org/data/2.5/forecast?appid=" + APIKey + "&q=" + city + "&count=10";
+    var queryURLFiveDay = "https://api.openweathermap.org/data/2.5/forecast?appid=" + APIKey + "&q=" + city + "&count=10";
     //api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml
 
     $.ajax({
@@ -88,7 +88,7 @@ $(document).ready(function () {
 
         //setting icons for day 0 -5
         var iconcode2 = response.list[array2[i]].weather[0].icon;
-        var iconurl2 = "http://openweathermap.org/img/w/" + iconcode2 + ".png";
+        var iconurl2 = "https://openweathermap.org/img/w/" + iconcode2 + ".png";
         $("#five-icon" + i).attr("src", iconurl2);
         console.log(i);
       }
@@ -111,7 +111,7 @@ $(document).ready(function () {
 
   function uvIndex(APIKey, lat, lon) {
 
-    var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
+    var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + APIKey + "&lat=" + lat + "&lon=" + lon;
 
     $.ajax({
       url: uvURL,
